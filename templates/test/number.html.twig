@@ -1,0 +1,22 @@
+{# templates/test/number.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block body %}
+<h1> test number :  {{ number}}  </h1>
+
+<form action="doUpload" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+
+    <div>
+        <label>File to upload:</label>
+        <input type="file" name="myfile">
+    </div>
+
+    <button type="submit">Send</button>
+
+</form>
+{% endblock %}

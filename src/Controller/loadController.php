@@ -19,17 +19,5 @@ class loadController extends AbstractController
     {
         return $this->render('loadfile/loadfile.html.twig');
     }
-   
-    public function uploadAction()
-    {
-        /*if ($form->isValid()) {
-
-            $file = $form['attachment']->getData();
-            $extension = $file->guessExtension();
-            if ($extension == "txt") { 
-            $contents = file_get_contents($file->getPathname());
-            }
-        }
-        */
-    }
+       
 }

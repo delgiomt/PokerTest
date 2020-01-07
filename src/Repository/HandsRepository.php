@@ -47,4 +47,13 @@ class HandsRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getHandsRounds() {
+        $query = $this->em->createQuery(
+            'SELECT DISTINCT(m.thread) FROM App:Message m 
+            WHERE m.thread IS NOT NULL 
+            ORDER BY m.thread DESC
+            LIMIT 10 ');
+        return $query->getResult(); 
+    }
 }

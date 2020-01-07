@@ -23,12 +23,42 @@ class PlayController extends AbstractController
         if(!isset($this->FiveCardRank))
             $this->FiveCardRank = new FiveCard();
 
-        $this->PlayFirstHand();
+        $this->PlayAllHands();
 
         return $this->render('play/index.html.twig', [
             'controller_name' => 'PlayController',
         ]);
     }
+
+private function PlayAllHands()
+{
+    $em = $this->getDoctrine()->getManager();
+    $conn = $em->getConnection();
+    $sql = 'select distinct hand_round from Hands';
+    $stmt = $conn->query($sql);
+
+      $player1Score=0;
+    $player2Score=0;
+    while ($row = $stmt->fetch()) {
+        $ens = $em->getRepository(Hands::class)
+          ->findBy(
+             array('HandRound'=> $row['hand_round']), 
+             array()
+           );
+        if(strlen($ens[0]->getCards())>0 && strlen($ens[1]->getCards())>0)
+        {
+        $player1Rank =$this->evaluateCards($ens[0]->getCards());
+        $player2Rank =$this->evaluateCards($ens[1]->getCards());
+       
+        if ($player1Rank>$player2Rank)
+            $player1Score++;
+        if ($player2Rank>$player1Rank)
+            $player2Score++;
+        }
+    }
+    echo ("Player 1 score :".$player1Score);
+    echo ("   Player 2 score :".$player2Score);
+}
 
     private function PlayFirstHand()
     {

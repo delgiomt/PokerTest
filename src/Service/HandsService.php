@@ -43,7 +43,7 @@ class HandsService
                         $entityManager->persist($hand);
                     }
                 $round++;
-                if ($round>=4) {break;}   // for test porpouse
+               // if ($round>=4) {break;}   // for test porpouse
             }
             $entityManager->flush();
             return $round;

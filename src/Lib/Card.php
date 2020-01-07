@@ -22,7 +22,7 @@ class Card
     public function __construct($str)
     {
         if(!preg_match('/^[2-9AKQJT][SHDC]$/', $str)) {
-            throw new \InvalidArgumentException("Invalid hand string $str");
+            throw new \InvalidArgumentException("Invalid hand string $str".$str);
         }
         $this->_face = $str[0];
         $this->_suit = $str[1];

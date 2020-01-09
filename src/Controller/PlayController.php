@@ -23,10 +23,11 @@ class PlayController extends AbstractController
         if(!isset($this->FiveCardRank))
             $this->FiveCardRank = new FiveCard();
 
-        $this->PlayAllHands();
+        $results=$this->PlayAllHands();
 
         return $this->render('play/index.html.twig', [
-            'controller_name' => 'PlayController',
+            'player1Wins' => $results[0],
+            'player2Wins' => $results[1],
         ]);
     }
 
@@ -56,8 +57,7 @@ private function PlayAllHands()
             $player2Score++;
         }
     }
-    echo ("Player 1 score :".$player1Score);
-    echo ("   Player 2 score :".$player2Score);
+    return array($player1Score, $player2Score);
 }
 
     private function PlayFirstHand()

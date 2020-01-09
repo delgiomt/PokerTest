@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PlayController!{% endblock %}
+{% block title %}Winner result!{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,17 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Game play results</h1>
 
-    This friendly message is coming from:
+    and the winner is ...
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/symfony-project/src/Controller/PlayController.php'|file_link(0) }}">src/Controller/PlayController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/symfony-project/templates/play/index.html.twig'|file_link(0) }}">templates/play/index.html.twig</a></code></li>
+        <li>Player 1 has won {{player1Wins}} hands</li>
+        <li>Player 2 has won {{player2Wins}} hands</li>
     </ul>
+    {% if (player1Wins>player2Wins) %}
+        <h2>Player 1 win</h2>
+    {% else %}
+        <h2>Player 2 win</h2>
+    {% endif %}
 </div>
 {% endblock %}

@@ -16,5 +16,4 @@ Build a PHP MVC solution that has the following Functionality:
 Please upload the completed solution with a README.md of how to get everything
 up and running to github.
 
-I have attached a sheet with the poker rules if you require them. If you need
-anything feel free to drop me an email joe@griffin.pm.
+

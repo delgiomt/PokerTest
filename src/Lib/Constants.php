@@ -39,7 +39,6 @@ class Constants
     const ACE_FLUSH=4016; // 2016+1012+508+255+128+64+32+1
     const MAX_FIVE_NONFLUSH_KEY_INT=360918; // 4*ACE_FIVE+KING_FIVE;
     const MAX_SEVEN_FLUSH_KEY_INT=7999; // ACE_FLUSH+KING_FLUSH+QUEEN_FLUSH+JACK_FLUSH+TEN_FLUSH+NINE_FLUSH+EIGHT_FLUSH;
-    //_SEVEN tag suppressed
     const TWO=0;
     const THREE=1;
     const FOUR=5;
@@ -53,7 +52,6 @@ class Constants
     const QUEEN=262349;
     const KING=636345;
     const ACE=1479181;
-    //end of _SEVEN tag suppressed
     const MAX_NONFLUSH_KEY_INT=7825759; // 4*ACE+3*KING;
     const MAX_FLUSH_KEY_INT=7999; // ACE_FLUSH+KING_FLUSH+QUEEN_FLUSH+JACK_FLUSH+TEN_FLUSH+NINE_FLUSH+EIGHT_FLUSH;
     const MAX_KEY_INT=62598246241; // MAX_NONFLUSH_KEY_INT+MAX_FLUSH_KEY_INT;
@@ -66,20 +64,6 @@ class Constants
     //Bit masks
     const SUIT_BIT_MASK=511;
     const NON_FLUSH_BIT_SHIFT=9;
-    /////////
-    //The following are used with NSAssert for
-    //debugging, ignored by release mode
-    const RANK_OF_A_WORST_HAND=0;
-    const RANK_OF_WORST_STRAIGHT=5854;
-    const RANK_OF_BEST_STRAIGHT=5863;
-    const RANK_OF_WORST_FLUSH=5864;
-    const RANK_OF_BEST_FLUSH=7140;
-    const RANK_OF_WORST_STRAIGHT_FLUSH=7453;
-    const RANK_OF_BEST_STRAIGHT_FLUSH=7462;
-    const RANK_OF_A_BEST_HAND=7462;
-    const KEY_COUNT=53924;
-    const NON_FLUSH_KEY_COUNT=49205;
-    const FLUSH_KEY_COUNT=4719;
     //Used in flush checking
     const UNVERIFIED=-2;
     const NOT_A_FLUSH=-1;

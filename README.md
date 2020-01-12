@@ -1,3 +1,23 @@
+To run this app use a Symfony environment
+https://symfony.com/
+
+run symfony server:start command.
+Open your browser and navigate to http://localhost:8000
+
+in the Login page use:
+username = united 
+password = remote
+
+---
+Credits
+in order to calculate the Hand rank for player I used and rearranged the code made by 
+Lachlan Donald found on github 
+https://github.com/lox
+
+---
+
+Assignment description
+
 #Poker hands
 
 The file hands.txt, contains 1000 random hands dealt to two players.

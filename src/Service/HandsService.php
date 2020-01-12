@@ -25,26 +25,27 @@ class HandsService
             $responseRows="";
             $ret = explode("\n", $txtFileContent);
             $entityManager= $this->em;
-            $round=1;    
+            $round=0;    
             foreach($ret as $hand) {
-                $cards= explode(" ",$hand);
-                if (count($cards)>0)
-                    {
-                        $hand= new Hands();
-                        $hand->setHandRound($round);
-                        $hand->setPlayerId(1);
-                        $hand->setCards(implode(" ",array_slice($cards, 0,5)));
-                        $entityManager->persist($hand);
-
-                        $hand= new Hands();
-                        $hand->setHandRound($round);
-                        $hand->setPlayerId(2);
-                        $hand->setCards(implode(" ",array_slice($cards, 5,5)));
-                        $entityManager->persist($hand);
-                    }
-                $round++;
-               // if ($round>=4) {break;}   // for test porpouse
-            }
+                if (strlen(trim($hand))>0)
+                {
+                    $cards= explode(" ",$hand);
+                    if (count($cards)>0)
+                        {
+                            $hand= new Hands();
+                            $hand->setHandRound(++$round);
+                            $hand->setPlayerId(1);
+                            $hand->setCards(implode(" ",array_slice($cards, 0,5)));
+                            $entityManager->persist($hand);
+    
+                            $hand= new Hands();
+                            $hand->setHandRound($round);
+                            $hand->setPlayerId(2);
+                            $hand->setCards(implode(" ",array_slice($cards, 5,5)));
+                            $entityManager->persist($hand);
+                        }
+                }
+             }
             $entityManager->flush();
             return $round;
         }

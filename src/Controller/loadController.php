@@ -13,8 +13,8 @@ class loadController extends AbstractController
 {
     
    /**
-   * Require ROLE_USER
-   *
+   * @Route("/", name="home")
+   *  Require ROLE_USER
    * @IsGranted("ROLE_USER")
    */
      public function index()

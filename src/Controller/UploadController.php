@@ -43,7 +43,7 @@ class UploadController extends AbstractController
     $numberOfHands=$handsService->storeHands($ret);
    
 
-    return new Response("File uploaded and stored to the DB ({$numberOfHands} hands loaded)" ,  Response::HTTP_OK, 
-    ['content-type' => 'text/plain']);         
+    return $this->render('upload/upload.html.twig',[
+        'numberOfHands' => $numberOfHands]);
     }
 }

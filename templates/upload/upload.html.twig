@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}File uploaded!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>File processed correctly</h1>
+    <h3>txt file uploaded and stored to the DB </h3>
+    <h4>({{numberOfHands}} hands loaded)</h4>
+    <div>
+    Check <a href="{{ path('play') }}">here</a> the result
+    </div>
+</div>
+{% endblock %}
